@@ -21,46 +21,46 @@ function getHumanChoice(){
 };
 
 function playRound(humanChoice, computerChoice){
-switch (computerChoice){
-	case "rock":
-		if (humanChoice == "rock"){
-			console.log("Its a tie!")
-			break;
-		}else if (humanChoice == "paper"){
-			console.log("You win!");
-			humanScore++;
-			break;
-		}else {
-			console.log("You lose!")
-			computerScore++;
-			break;
-		}
-	case "paper":
-		if (humanChoice == "paper"){
-			console.log("Its a tie!")
-			break;
-		}else if (humanChoice == "scissors"){
-			console.log("You win!")
-			humanScore++;
-			break;
-		}else {
-			console.log("You lose!")
-			computerScore++;
-			break;
-		}
-	case "scissors":
-		if (humanChoice == "scissors"){
-			console.log("Its a tie!")
-			break;
-		}else if (humanChoice == "rock"){
-			console.log("You win!")
-			humanScore++;
-			break;
-		}else {
-			console.log("You lose!")
-			computerScore++;
-			break;
-		}
+    switch (computerChoice){
+	    case "rock":
+		    if (humanChoice == "rock"){
+			    console.log("Its a tie!")
+			    break;
+		    }else if (humanChoice == "paper"){
+			    console.log("You win!");
+			    humanScore++;
+			    break;
+		    }else {
+			    console.log("You lose!")
+			    computerScore++;
+			    break;
+		    }
+	    case "paper":
+		    if (humanChoice == "paper"){
+			    console.log("Its a tie!")
+			    break;
+		    }else if (humanChoice == "scissors"){
+			    console.log("You win!")
+			    humanScore++;
+			    break;
+		    }else {
+			    console.log("You lose!")
+			    computerScore++;
+			    break;
+		    }
+	    case "scissors":
+		    if (humanChoice == "scissors"){
+			    console.log("Its a tie!")
+			    break;
+		    }else if (humanChoice == "rock"){
+			    console.log("You win!")
+			    humanScore++;
+			    break;
+		    }else {
+			    console.log("You lose!")
+			    computerScore++;
+			    break;
+		    }
     }
 };
 	let computerScore = 0;
