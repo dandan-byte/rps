@@ -21,49 +21,96 @@ function getHumanChoice(){
 };
 
 function playRound(humanChoice, computerChoice){
+    let text;
     switch (computerChoice){
 	    case "rock":
 		    if (humanChoice == "rock"){
-			    console.log("Its a tie!")
+			    text = gameConsole.createTextNode("\nIts a tie!");
+                gameConsole.appendChild(text);
 			    break;
 		    }else if (humanChoice == "paper"){
-			    console.log("You win!");
+			    text = gameConsole.createTextNode("\nYou win!");
+                gameConsole.appendChild(text);
 			    humanScore++;
 			    break;
 		    }else {
-			    console.log("You lose!")
+			    text = gameConsole.createTextNode("\nYou lose!");
+                gameConsole.appendChild(text);
 			    computerScore++;
 			    break;
 		    }
 	    case "paper":
 		    if (humanChoice == "paper"){
-			    console.log("Its a tie!")
+			    text = gameConsole.createTextNode("\nIts a tie!");
+                gameConsole.appendChild(text);
 			    break;
 		    }else if (humanChoice == "scissors"){
-			    console.log("You win!")
+			    text = gameConsole.createTextNode("\nYou win!");
+                gameConsole.appendChild(text);
 			    humanScore++;
 			    break;
 		    }else {
-			    console.log("You lose!")
+			    text = gameConsole.createTextNode("\nYou lose!");
+                gameConsole.appendChild(text);
 			    computerScore++;
 			    break;
 		    }
 	    case "scissors":
 		    if (humanChoice == "scissors"){
-			    console.log("Its a tie!")
+			    text = gameConsole.createTextNode("\nIts a tie!");
+                gameConsole.appendChild(text);
 			    break;
 		    }else if (humanChoice == "rock"){
-			    console.log("You win!")
+			    text = gameConsole.createTextNode("\nYou win!");
+                gameConsole.appendChild(text);
 			    humanScore++;
 			    break;
 		    }else {
-			    console.log("You lose!")
+			    text = gameController.createTextNode("\nYou lose!");
+                gameConsole.appendChild(text);
 			    computerScore++;
 			    break;
 		    }
     }
+    gamesPlayed++;
 };
 	let computerScore = 0;
 	let humanScore = 0;
 	let humanChoice;
 	let computerChoice;
+    let gamesPlayed; 
+
+const gameController = document.querySelector("div.gameController");
+const gameConsole = document.querySelector("div.gameConsole");
+
+function initGame(){
+    computerChoice = getComputerChoice();
+    let text;
+    if (gamesPlayed = 5){
+        text = gameConsole.createTextNode(`
+            The score is: Computer: ${computerScore} You: ${humanScore}.
+            The winner is ${computerScore > humanScore ? "the computer!" : "you!"}`);
+        gamesPlayed = 0;
+        gameConsole.appendChild(text);
+    }else if(gamesPlayed < 5 && gamesPlayed > 0){
+        text = gameConsole.createTextNode(`
+            The current score is: Computer: ${computerScore} You: ${humanScore}
+            You played ${humanChoice}.
+            The computer played ${computerChoice}.`);
+        gameConsole.appendChild(text);
+    }else{
+        gameConsole.textContent = "Thanks for starting the game.";
+        text = gameConsole.createTextNode(`
+            You played ${humanChoice}.
+            The computer played ${computerChoice}.`);
+        gameConsole.appendChild(text);
+    };
+};
+
+function btnPress(event){
+    humanChoice = event.class;
+    initGame();
+    playRound(humanChoice, computerChoice);
+};
+
+gameController.addEventListener("click", btnPress(event));
